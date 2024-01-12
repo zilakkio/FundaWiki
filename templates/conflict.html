@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Conflict Resolution{% endblock %}
+
+{% block content %}
+<div class="animated container">
+    <h2><b>Conflict Resolution</b></h2>
+    <p>The unit "{{ link_name }}" points to multiple definitions. Please select the appropriate term:</p>
+    <ul class="list-group">
+        {% for page in pages %}
+            <li class="list-group-item">
+                <a href="/define/{{ page.key }}" class="animated" style="animation-delay: {{loop.index * 0.15}}s;">{{ page.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

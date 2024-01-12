@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+    {% for version in page.get_versions_sorted_by_upvotes() %}
+        <div class="animated {{ 'first-version' if loop.first else 'other-version' }}"  style="animation-delay: {{ loop.index0 * 0.15 }}s;">
+            <!-- Labels -->
+            <div class="labels">
+                {% if version.is_axiomatic %}
+                    <span class="label label-axiomatic"><b>FundaMentals</b></span>
+                {% else %}
+                    {% if not version.is_strict %}
+                        <span class="label label-not-strict"><b>Not strict</b></span>
+                    {% endif %}
+                {% endif %}
+                {% if page.is_verified %}
+                        <span class="label label-verified"><b>Verified</b></span>
+                {% endif %}
+            </div>
+            {% if loop.first %}
+                <h1 class="display-6"><b>{{ page.title }}</b></h1>
+            {% endif %}
+            <h2 class="lead">{{ version.rendered|safe }}</h2>
+            {% if not page.is_verified %}
+                <p style="color: gray;"><b>{{ version.creator }}</b> {{ version.datetime }}</p>
+            {% endif %}
+            <!-- Edit and Verify buttons -->
+            <div class="edit-button">
+                {% if current_user.admin or not page.is_verified %}
+                    <a href="/edit/{{ page.key }}/{{ version.id }}" class="btn edit-btn">Edit</a>
+                {% endif %}
+                {% if current_user.admin and not page.is_verified and loop.first %}
+                    <a href="{{ url_for('verify_page', page_name=page.key, version_id=version.id) }}" class="btn btn-success">Verify</a>
+                {% endif %}
+                {% if current_user.admin and loop.first %}
+                    <a href="{{ url_for('delete_page', page_key=page.key) }}" class="btn btn-danger">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

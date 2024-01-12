@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Page{% endblock %}
+
+{% block content %}
+    <div class="animated jumbotron">
+        <h1><b>Edit "{{ page.title }}"</b></h1>
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="content">Definition</label>
+                <textarea class="form-control" id="content" name="content" rows="3" required>{{ version.content.replace("<br>", "\n") }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="links">Synonyms (each on a new line)</label>
+                <textarea class="form-control" id="links" name="links" rows="3">{{ version.links|join('\n') }}</textarea>            </div>
+
+                {% if current_user.admin %}
+                    <div class="form-group">
+                        {% if version.is_axiomatic %}
+                            <input type="checkbox" id="axiomatic1" name="axiomatic" checked>
+                            <label for="axiomatic1"><b>Axiomatic definition</b></label>
+                        {% else %}
+                            <input type="checkbox" id="axiomatic2" name="axiomatic">
+                            <label for="axiomatic2"><b>Axiomatic definition</b></label>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+{% endblock %}

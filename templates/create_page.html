@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Page{% endblock %}
+
+{% block content %}
+    <div class="animated jumbotron">
+        <h1><b>Create a new definition</b></h1>
+        <form action="/create" method="post">
+            <div class="form-group">
+                <label for="title">Term</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ prefill_title }}" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Definition</label>
+                <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="links">Synonyms (each on a new line)</label>
+                <textarea class="form-control" id="links" name="links" rows="3"></textarea>
+            </div>
+            {% if current_user.admin %}
+                <div class="form-group">
+                    <input type="checkbox" id="axiomatic" name="axiomatic">
+                    <label for="axiomatic"><b>Axiomatic definition</b></label>
+                </div>
+            {% endif %}
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+{% endblock %}

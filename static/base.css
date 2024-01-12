@@ -1,0 +1,256 @@
+/* Define base colors for dark mode (default) */
+:root {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --navbar-bg-color: #1f1f1f;
+    --navbar-text-color: #ffffff;
+    --link-color: #6bcbff;
+    --link-hover-color: #ffffff;
+    --page-item-bg-color: #0e0e0e;
+    --page-item-border-color: #1c1c1c;
+    --accent-item-bg-color: #1a1a1a;
+    --accent-item-border-color: #444;
+    --jumbotron-bg-color: #121212;
+    --page-item-text-color: #ffffff;
+    --input-bg-color: #2c2c2c;
+    --input-border-color: #5a5a5a;
+    --input-placeholder-color: #a9a9a9;
+    --input-text-color: #ffffff;
+    --checkbox-accent-color: #ffffff;
+    --border-color: #555;
+    --gradient-first: #6eff86;
+    --gradient-second: #73cef5;
+    --hamburger-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Override for light mode */
+body.light-mode {
+    --background-color: #ffffff;
+    --text-color: black;
+    --navbar-bg-color: #e9ecef;
+    --navbar-text-color: #333;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
+    --page-item-bg-color: #ffffff;
+    --page-item-border-color: #ddd;
+    --accent-item-bg-color: #f3f3f3;
+    --accent-item-border-color: #919191;
+    --jumbotron-bg-color: #ffffff;
+    --page-item-text-color: #000000;
+    --input-bg-color: #ffffff;
+    --input-border-color: #ced4da;
+    --input-placeholder-color: #6c757d;
+    --input-text-color: #495057;
+    --checkbox-accent-color: #6c757d;
+    --border-color: #ddd;
+    --gradient-first: #03cc21;
+    --gradient-second: #0077ff;
+    --hamburger-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Apply base colors */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif; /* Assuming Inter is your default font */
+    padding-top: 0;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: var(--navbar-bg-color);
+    color: var(--navbar-text-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: var(--navbar-text-color);
+}
+
+.navbar .navbar-brand:hover,
+.navbar .nav-link:hover {
+    color: var(--link-hover-color);
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Form field styles */
+input[type="text"],
+input[type="password"],
+textarea[class="form-control"],
+input[type="checkbox"] {
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+    border: 1px solid var(--input-border-color);
+}
+
+input[type="checkbox"] {
+    accent-color: var(--checkbox-accent-color);
+}
+
+::placeholder {
+    color: var(--input-placeholder-color);
+}
+
+/* Jumbotron styles */
+.jumbotron {
+    background-color: var(--jumbotron-bg-color);
+    color: var(--text-color);
+}
+
+/* Link styles */
+a,
+.page-link {
+    color: var(--link-color);
+}
+
+a:hover,
+.page-link:hover {
+    color: var(--link-hover-color);
+}
+
+/* Page item styles */
+.page-item {
+    background-color: var(--page-item-bg-color);
+    color: var(--page-item-text-color);
+    border: 1px solid var(--page-item-border-color);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.page-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Featured page styles */
+.featured-page {
+    background-color: var(--page-item-bg-color);
+    border: 1px solid var(--page-item-border-color);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Version block styles */
+.first-version {
+    background-color: var(--accent-item-bg-color);
+    border: 1px solid var(--accent-item-border-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.other-version {
+    background-color: var(--page-item-bg-color);
+    border: 1px solid var(--page-item-border-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 strong {
+    background: linear-gradient(45deg, var(--gradient-first), var(--gradient-second));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+/* Container and button styles */
+.container {
+    max-width: 960px;
+}
+
+.edit-button {
+    margin-top: 20px;
+}
+
+.edit-btn {
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px solid #ccc;
+}
+
+.edit-btn:hover {
+    background-color: #f8f8f8;
+}
+
+.labels {
+    margin-bottom: 10px;
+}
+
+.label {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.label-strict { background-color: #48c774; color: white; }
+.label-not-strict { background-color: #ff6b6b; color: white; }
+.label-verified { background-color: #48c774; color: white; }
+.label-not-verified { background-color: #debe1f; color: white; }
+.label-axiomatic { background-color: #3474eb; color: white; }
+
+.search-results-page {
+    max-width: 800px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.search-title {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.list-group-item {
+    background-color: var(--page-item-bg-color);
+    border: 1px solid var(--page-item-border-color);
+    color: var(--text-color);
+}
+
+.list-group-item:hover {
+    background-color: var(--link-hover-color);
+    color: var(--background-color);
+}
+
+.no-results {
+    color: var(--text-color);
+}
+
+.navbar-toggler {
+    border-color: transparent;
+}
+
+.navbar-toggler-icon {
+    background-image: var(--hamburger-image)
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated {
+    animation-name: fadeInUp;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}

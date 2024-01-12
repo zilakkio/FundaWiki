@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Error{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <h1 class="display-1">{{ error_code }}</h1>
+        <p class="lead">{{ error_message }}</p>
+        <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+{% endblock %}

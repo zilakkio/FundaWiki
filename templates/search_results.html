@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+    <div class="container search-results-page">
+        <h2 class="animated search-title" ><b>Search Results for "{{ query }}"</b></h2>
+        {% if results|length > 0 %}
+            <div class="list-group">
+                {% for page in results %}
+                    {% if results|length > 10 %}
+                        <a href="/define/{{ page.lower() }}" class="animated list-group-item list-group-item-action" style="animation-delay: {{ loop.index * (0.5 / results|length) }}s;">{{ page }}</a>
+                    {% else %}
+                        <a href="/define/{{ page.lower() }}" class="animated list-group-item list-group-item-action" style="animation-delay: {{ loop.index * 0.05 }}s;">{{ page }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-results">No results found.</p>
+        {% endif %}
+    </div>
+{% endblock %}
